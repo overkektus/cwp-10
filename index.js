@@ -19,6 +19,11 @@ app.get('/api/films/readall', (req, res) => {
   res.send(films);    
 });
 
+app.get('/api/films/read', (req, res) => {
+  const searchId = req.query.id;
+  res.send(films.find(film => film.id == searchId));
+});
+
 app.listen(3000, () => {
   console.log('Example app listening on port 3000!');
 });
